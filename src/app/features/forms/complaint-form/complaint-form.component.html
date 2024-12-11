@@ -1,0 +1,126 @@
+<div class="container mt-5">
+  <!-- Instructions/Guidelines Section -->
+  <div class="alert alert-info">
+    <h4>הנחיות</h4>
+    <p><strong>שדות המסומנים בכוכבית (*) הם שדות חובה</strong></p>
+    <p>
+      אגף הביקורת ותלונות הציבור מברר תלונות / פניות הקשורות למכלול הפעילות של מערכת בתי המשפט, למעט תלונות על החלטות שיפוטיות או על נושאי משרה שיפוטית.
+      לנוחותך להלן קישור ל נוהל טיפול בתלונות ופניות הציבור המפרט את עקרונות הטיפול בתלונות ובפניות ואת תהליך הטיפול בהן.
+    </p>
+    <div>
+      לידיעתך, להלן תלונות/ פניות שלא ייבדקו על ידי אגף הביקורת ותלונות הציבור:
+      <ul>
+        <li>תלונות על ניהול ההליך המשפטי על ידי השופט / הרשם, לרבות התנהגות או מעשה של שופט / רשם.</li>
+        <li>פניות שעניינן בקשות לבית משפט, לרבות בקשות לפסילת שופט.</li>
+        <li>תלונות או פניות שעניינן אינו קשור לגורם כלשהו במערכת בתי המשפט.</li>
+        <li>תלונות המוגשות בעילום שם – אלא אם החליט מנהל האגף שיש במכתב התלונה נקודות שניתן לבדוק אותן.</li>
+        <li>תלונות או פניות המופנות לגורם אחר, כשאגף הביקורת מכותב רק בהעתקים.</li>
+        <li>תלונות שהאגף מוצא אותן קנטרניות או טורדניות.</li>
+        <li>תלונה שהוגשה לאחר שעברה שנה מיום המעשה שעליו נסבה התלונה.</li>
+        <li>תלונות הנמצאות בחקירת משטרה או גורם חוקר אחר.</li>
+        <li>פניות שהן בגדר בקשה לייעוץ משפטי.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Card for the Form -->
+  <div class="card" style="max-width: 800px; margin: auto;">
+    <div class="card-header">
+      <h3>פנייה / תלונה</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        
+        <!-- Complaint Type -->
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label">סוג הפנייה</label>
+          <div class="col-sm-10">
+            <select class="form-select" formControlName="complaintType">
+              <option value="request">פניית בירור/בקשה</option>
+              <option value="complaint">תלונה</option>
+              <option value="question">בקשה, שאלה, הצעה, פנייה לקבלת מידע וכיו"ב.</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- First Name -->
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="firstName">שם פרטי</label>
+          <div class="col-sm-10">
+            <input id="firstName" type="text" class="form-control" formControlName="firstName" required>
+          </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="lastName">שם משפחה</label>
+          <div class="col-sm-10">
+            <input id="lastName" type="text" class="form-control" formControlName="lastName" required>
+          </div>
+        </div>
+
+        <!-- ID Number -->
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="idNumber">תעודת זהות</label>
+          <div class="col-sm-10">
+            <input id="idNumber" type="text" class="form-control" formControlName="idNumber" required>
+          </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="phone">טלפון נייד</label>
+          <div class="col-sm-10">
+            <input id="phone" type="text" class="form-control" formControlName="phone" required>
+          </div>
+        </div>
+
+        <!-- Address -->
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="address">כתובת</label>
+          <div class="col-sm-10">
+            <input id="address" type="text" class="form-control" formControlName="address" required>
+          </div>
+        </div>
+
+        <!-- Complaint Description -->
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="complaintDescription">מהות הפנייה</label>
+          <div class="col-sm-10">
+            <textarea id="complaintDescription" class="form-control" formControlName="complaintDescription" rows="4" required></textarea>
+          </div>
+        </div>
+
+        <!-- Case Number and Court -->
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="caseNumber">מספר תיק בימ"ש</label>
+          <div class="col-sm-10">
+            <input id="caseNumber" type="text" class="form-control" formControlName="caseNumber">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="court">בית משפט</label>
+          <div class="col-sm-10">
+            <input id="court" type="text" class="form-control" formControlName="court">
+          </div>
+        </div>
+
+        <!-- File Upload Section -->
+        <div class="mb-3">
+          <label for="file" class="form-label">העלאת מסמכים</label>
+          <input type="file" class="form-control" id="file" multiple>
+          <small class="form-text text-muted">
+            * גודל מקסימלי לקובץ בודד 10MB. סוגי הקבצים שניתן לצרף: doc, docx, pdf.
+          </small>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="row">
+          <div class="col-sm-10 offset-sm-2">
+            <button class="btn btn-primary" type="submit" [disabled]="!form.valid">שלח</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
